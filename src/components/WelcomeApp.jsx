@@ -13,7 +13,8 @@ export default function WelcomeApp() {
     }
 
     const removeName = (nameToRemove) => {
-        setNames(names.filter((name) => name !== nameToRemove));
+        const names = names.filter((name) => name !== nameToRemove)
+        setNames(names);
     };
 
 
