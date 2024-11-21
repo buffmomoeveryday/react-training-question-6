@@ -1,7 +1,11 @@
 # How to Run
 
 Install node modules
-- npm i
+```bash
+ npm i
+ ```
 
 Start the development server
-- npm run dev
+```bash
+npm run dev
+```
