@@ -24,8 +24,6 @@ export default function WelcomeApp() {
                 {names.map((name, index) => (
                     <WelcomeList index={name} name={name} onRemove={() => removeName(name)} />
                 ))}
-
-
             </ul>
 
             <input name="" value={newName} onChange={(e) => setNewName(e.target.value)}></input>

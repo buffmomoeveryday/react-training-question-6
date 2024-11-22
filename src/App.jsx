@@ -5,7 +5,6 @@ import './App.css'
 import WelcomeApp from './components/WelcomeApp'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <WelcomeApp />
