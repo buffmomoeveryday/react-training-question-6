@@ -1,8 +1,9 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import WelcomeList from "./WelcomeList"
 
 export default function WelcomeApp() {
-    const [names, setNames] = useState(['ram', "shyam", "haru"])
+
+    const [names, setNames] = useState([])
     const [newName, setNewName] = useState("")
 
     const addNewName = () => {
@@ -17,8 +18,18 @@ export default function WelcomeApp() {
         setNames(names1);
     };
 
-    let nameLength = names.length
-    console.log(nameLength)
+
+    // Every time an item is added in the array, log "Welcome, {{person}}. Hope you have a great day!"
+    // Add cleanup function to log "Unmounted" on the console when the component unmounts.
+    useEffect(() => {
+        const lastAddedName = names[names.length - 1]
+        if (lastAddedName !== undefined) {
+            console.log(`Welcome, ${lastAddedName}.Hope you have a great day`)
+        }
+        return (() => { console.log("Unmounted") })
+    }, [names])
+
+
 
     return (
         <>
@@ -32,14 +43,13 @@ export default function WelcomeApp() {
 
 
 
-            {names.length < 5 && (
+            {names.length < 5 ? (
                 <div>
                     <input name="" value={newName} onChange={(e) => setNewName(e.target.value)}></input>
                     <button onClick={addNewName}>Add Name </button>
                 </div>
 
-            )}
-            {names.length > 5 && <p>Cannot Add More</p>}
+            ) : <p> Cannot add more</p>}
 
         </>
     )
