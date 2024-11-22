@@ -13,8 +13,11 @@ export default function WelcomeApp() {
     }
 
     const removeName = (nameToRemove) => {
-        const names = names.filter((name) => name !== nameToRemove)
-        setNames(names);
+
+
+        const names1 = names.filter((name) => name !== nameToRemove)
+        console.log("helo")
+        setNames(names1);
     };
 
 
@@ -22,7 +25,7 @@ export default function WelcomeApp() {
         <>
             <ul>
                 {names.map((name, index) => (
-                    <WelcomeList index={name} name={name} onRemove={() => removeName(name)} />
+                    <WelcomeList index={index} name={name} onRemove={() => removeName(name)} />
                 ))}
             </ul>
 
