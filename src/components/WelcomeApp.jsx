@@ -39,7 +39,7 @@ export default function WelcomeApp() {
                 </div>
 
             )}
-            {names.length >= 5 && <p>Cannot Add More</p>}
+            {names.length > 5 && <p>Cannot Add More</p>}
 
         </>
     )
